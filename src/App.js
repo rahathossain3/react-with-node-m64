@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 function App() {
   const [users, setUsers] = useState([]);
 
+  //load data
   useEffect(() => {
     fetch('http://localhost:5000/users')
       .then(res => res.json())
@@ -23,11 +24,9 @@ function App() {
     fetch('http://localhost:5000/user', {
 
       method: 'POST',
-
       headers: {
         'content-type': "application/json"
       },
-
       body: JSON.stringify(user)
     })
 

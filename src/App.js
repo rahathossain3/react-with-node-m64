@@ -10,7 +10,7 @@ function App() {
       .then(data => setUsers(data));
   }, [])
 
-  // handle user
+  // handle user submit button event--------
   const handleAddUser = event => {
     event.preventDefault();
     const name = event.target.name.value;
@@ -18,18 +18,26 @@ function App() {
 
     const user = { name, email }
 
-    //sent / post data to server
+    //sent / post data to server-----------------------
+
+    fetch('http://localhost:5000/user', {
+
+      method: 'POST',
+
+      headers: {
+        'content-type': "application/json"
+      },
+
+      body: JSON.stringify(user)
+    })
+
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      })
 
 
-
-
-
-
-
-
-
-
-    console.log(name, email);
+    // console.log(name, email);
   }
 
 

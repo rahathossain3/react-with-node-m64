@@ -18,7 +18,7 @@ function App() {
 
     const user = { name, email }
 
-    //sent / post data to server-----------------------
+    //sent/post data to server-----------------------
 
     fetch('http://localhost:5000/user', {
 
@@ -33,9 +33,12 @@ function App() {
 
       .then(res => res.json())
       .then(data => {
-        console.log(data);
-      })
+        // for output show users
+        const newUser = [...users, data];
+        setUsers(newUser)
 
+        // console.log(data);
+      })
 
     // console.log(name, email);
   }
